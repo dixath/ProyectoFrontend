@@ -1,0 +1,157 @@
+---
+// Productos colombianos — precios en COP
+const products = [
+  {
+    id: 'p1',
+    name: 'Pandebono',
+    description: 'Pan de queso y almidón de yuca, recién salido del horno. El favorito de Barrancabermeja.',
+    price: 3500,
+    image: 'https://i1-c.pinimg.com/736x/9c/25/25/9c25250303376448e7fc60bcdcebf0b4.jpg',
+    category: 'Pan Típico',
+  },
+  {
+    id: 'p2',
+    name: 'Croissant de Mantequilla',
+    description: 'Hojaldre laminado a mano, dorado y crujiente por fuera, suave por dentro.',
+    price: 5500,
+    image: 'https://imgs.search.brave.com/MXQLK7O53qPN-JmHx22aRQneIXKXnjgfiy7zCfAhvxY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4w/LnVuY29tby5jb20v/ZXMvcG9zdHMvNy8x/LzMvY29tb19oYWNl/cl9jcm9pc3NhbnRz/X2RlX21hbnRlcXVp/bGxhXzUxMzE3XzYw/MC5qcGc',
+    category: 'Hojaldre',
+  },
+  {
+    id: 'p3',
+    name: 'Pan Campesino',
+    description: 'Corteza gruesa y miga esponjosa. Ideal para acompañar el desayuno llanero.',
+    price: 7000,
+    image: 'https://i1-c.pinimg.com/736x/05/ca/80/05ca80dced3c98791273cc68d574a52d.jpg',
+    category: 'Pan Salado',
+  },
+  {
+    id: 'p4',
+    name: 'Torta de Zanahoria',
+    description: 'Húmeda, esponjosa, con nueces tostadas y cobertura de queso crema.',
+    price: 45000,
+    image: 'https://imgs.search.brave.com/m-ETtoAFGJfOLxcfzwIydeZmpljuN3XL9XvaCxQqkN4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9nb3Vy/bWV0YmlsYmFvLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAx/Ny8wOS9Hb3VybWV0/LUJpbGJhby00OS0x/MDI0eDY4My5qcGc',
+    category: 'Pasteles',
+  },
+  {
+    id: 'p5',
+    name: 'Almojábanas',
+    description: 'Suaves y esponjosas, elaboradas con cuajada fresca. Tradición costeña.',
+    price: 2500,
+    image: 'https://imgs.search.brave.com/0QVuhkNlKiUoLCWaj56FN8YNMpCUP49BRQAH2xhiQv4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/LmJvbnZpdmV1ci5j/b20vaW50ZXJpb3It/ZGUtbGFzLWFsbW9q/YWJhbmFzLmpwZw',
+    category: 'Pan Típico',
+  },
+  {
+    id: 'p6',
+    name: 'Bizcocho de Achira',
+    description: 'Crujiente y liviano, elaborado con almidón de achira. Un clásico de la región.',
+    price: 6000,
+    image: 'https://imgs.search.brave.com/gDlQx4TcYwDnoGsBnPEc3qXvxYUEu0P7b9Yti-IMUhU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzg3LzI3/Lzc3Lzg3Mjc3NzQ3/NzNjMTk3MzFlMTgx/MjY5ZjkwZTg1ODhk/LmpwZw',
+    category: 'Especial',
+  },
+];
+
+// Formato COP en tiempo de build (para mostrar precios estáticos)
+const formatCOP = (price: number) =>
+  new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(price);
+---
+
+<section id="productos" class="py-28" style="background: var(--surface-base);">
+  <div class="container-main">
+
+    <!-- Encabezado de sección -->
+    <div class="mb-16 reveal">
+      <span class="section-label">Nuestro menú</span>
+      <h2
+        class="text-4xl md:text-5xl font-bold mb-4"
+        style="font-family: var(--font-display); color: var(--color-coffee-dark);"
+      >
+        Hecho con amor,<br class="hidden sm:block" />horneado hoy
+      </h2>
+      <div class="divider-accent mb-5"></div>
+      <p class="text-gray-500 text-lg" style="max-width: 52ch;">
+        Cada pieza se prepara a diario con ingredientes frescos y recetas que hemos
+        cuidado por más de tres décadas.
+      </p>
+    </div>
+
+    <!-- Grid de productos — asimétrico en desktop -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {products.map((product, i) => (
+        <article
+          class={`product-card reveal group flex flex-col bg-white rounded-2xl overflow-hidden`}
+          style={`animation-delay: ${i * 80}ms; box-shadow: var(--shadow-sm);`}
+          aria-label={`${product.name} — ${formatCOP(product.price)}`}
+        >
+          <!-- Imagen -->
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={product.image}
+              alt={product.name}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <!-- Categoría badge -->
+            <div class="absolute top-3 left-3">
+              <span class="badge-category">{product.category}</span>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-5 flex-1 flex flex-col">
+            <div class="flex justify-between items-start gap-3 mb-2">
+              <h3
+                class="text-lg font-bold leading-snug transition-colors group-hover:text-[--color-coffee]"
+                style="font-family: var(--font-display); color: var(--color-coffee-dark);"
+              >
+                {product.name}
+              </h3>
+              <span
+                class="text-base font-bold shrink-0 tabular-nums"
+                style="color: var(--color-coffee);"
+                data-price
+              >
+                {formatCOP(product.price)}
+              </span>
+            </div>
+
+            <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-1">
+              {product.description}
+            </p>
+
+            <!-- Botón agregar al carrito -->
+            <button
+              class="add-to-cart-btn w-full py-3 px-4 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 active:scale-95"
+              style="background: var(--color-beige); color: var(--color-coffee);"
+              onclick={`window.addToCart('${JSON.stringify(product).replace(/'/g, "\\'")}')`}
+              aria-label={`Agregar ${product.name} al carrito`}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              Agregar al carrito
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-card {
+    transition:
+      box-shadow var(--transition-normal),
+      transform var(--transition-normal);
+  }
+  .product-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+
+  .add-to-cart-btn:hover {
+    background: var(--color-coffee) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(139, 94, 52, 0.28);
+  }
+</style>

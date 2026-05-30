@@ -1,11 +1,3 @@
-# Astro Starter Kit: Conceptos Básicos
-
-```sh
-npm create astro@latest -- --template basics
-```
-
->  Panadería La Esperanza
-
 ## Características
 -  Diseño responsivo con Tailwind CSS
 -  Animaciones suaves y experiencia visual
@@ -17,37 +9,7 @@ npm create astro@latest -- --template basics
 -  Integración con WhatsApp para pedidos
 
 
-## Estructura del Proyecto
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   ├── Navbar.astro
-│   │   ├── Hero.astro
-│   │   ├── Products.astro
-│   │   ├── Promotions.astro
-│   │   ├── About.astro
-│   │   ├── Contact.astro
-│   │   ├── Footer.astro
-│   │   └── CartModal.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   ├── pages/
-│   │   └── index.astro
-│   └── styles/
-│       └── global.css
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
-
-Para obtener más información sobre la estructura de carpetas de un proyecto de Astro, consulta [nuestra guía sobre la estructura del proyecto](https://docs.astro.build/en/basics/project-structure/).
-
 ## Comandos
-
 Todos los comandos se ejecutan desde la raíz del proyecto, desde una terminal:
 
 | Comando                   | Acciones                                                      |
@@ -64,11 +26,6 @@ Todos los comandos se ejecutan desde la raíz del proyecto, desde una terminal:
 ### Variables de Entorno
 No se requieren variables de entorno para desarrollo local.
 
-### Número de WhatsApp
-Ubicado en `src/components/CartModal.astro` (línea 73):
-```javascript
-const whatsappNumber = "3513884669"; // CORREGIR AQUÍ
-```
 
 ## Soporte
 Para reportar bugs o sugerencias, contactar al equipo de desarrollo.

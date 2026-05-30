@@ -9,9 +9,10 @@
 -  Integración con WhatsApp para pedidos
 
 
-## Comandos
-Todos los comandos se ejecutan desde la raíz del proyecto, desde una terminal:
+## Configuración
+Todos los comandos se ejecutan desde la raíz de una terminal.
 
+## Comandos
 | Comando                   | Acciones                                                      |
 | :------------------------ | :-----------------------------------------------------------|
 | `npm install`             | Instala las dependencias                                    |
@@ -21,17 +22,15 @@ Todos los comandos se ejecutan desde la raíz del proyecto, desde una terminal:
 | `npm run astro ...`       | Ejecuta comandos de la CLI como `astro add`, `astro check`  |
 | `npm run astro -- --help` | Obtiene ayuda para usar la CLI de Astro                     |
 
-## Configuración
+
 
 ### Variables de Entorno
-No se requieren variables de entorno para desarrollo local.
+No se requieren variables de entorno.
 
 
 ## Soporte
 Para reportar bugs o sugerencias, contactar al equipo de desarrollo.
 ---
+
 **Última actualización:** 23/05/2026
 ---
-
-## ¿Quieres saber más?
-No dudes en consultar [nuestra documentación](https://docs.astro.build) o [unirte a nuestro servidor de Discord](https://astro.build/chat).
